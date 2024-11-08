@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useMatch } from "react-router-dom";
 import { debounce } from "lodash";
 import { useDisneyCharacter } from "../contexts/DisneyCharacterContext";
 import disneyLogo from "../assets/disneylogo.svg";
 import avatarImg from "../assets/avatar.svg";
 
 const SearchHeader = (): JSX.Element => {
-  const [nameQuery, setNameQuery] = useState("");
-  const [debouncedNameQuery, setDebouncedNameQuery] = useState("");
+  const { searchString, setSearchString } = useDisneyCharacter();
+  
+  const [nameQuery, setNameQuery] = useState(searchString);
+  const [debouncedNameQuery, setDebouncedNameQuery] = useState(searchString);
 
-  const { setSearchString } = useDisneyCharacter();
+  const navigate = useNavigate();
+  const isHomePage = useMatch("/");
 
   useEffect(() => {
     const debouncedHandler = debounce((value) => {
@@ -22,6 +25,8 @@ const SearchHeader = (): JSX.Element => {
 
   useEffect(() => {
     setSearchString(debouncedNameQuery);
+
+    if (isHomePage === null && debouncedNameQuery.length > 2) navigate("/");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedNameQuery]);
 
@@ -39,9 +44,9 @@ const SearchHeader = (): JSX.Element => {
         value={nameQuery}
         onChange={(e) => setNameQuery(e.target.value)}
       />
-      <button>
+      <Link to="/profile">
         <img alt="Profile" src={avatarImg} className="" />
-      </button>
+      </Link>
     </header>
   );
 };
