@@ -20,7 +20,7 @@ interface DisneyCharacterContextType {
   addCharacter: (character: CharacterType) => void;
   addCharacters: (newCharacters: CharacterType[]) => void;
   getCharacterById: (id: number) => CharacterType | undefined;
-  setSearchString: (nameStr: string) => void; //CharacterType | CharacterType[] | undefined;
+  setSearchString: (nameStr: string) => void;
   defaultDisney: (CharacterType | undefined)[];
   featuredDisney: (CharacterType | undefined)[];
   visibleCharacters: (CharacterType | undefined)[];

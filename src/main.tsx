@@ -11,7 +11,6 @@ import { UserProvider } from "./contexts/UserContext";
 import { DisneyCharacterProvider } from "./contexts/DisneyCharacterContext";
 import App from "./App.tsx";
 import UserProfile from "./UserProfile.tsx";
-import CharacterDetail from "./CharacterDetail.tsx";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +22,7 @@ createRoot(document.getElementById("root")!).render(
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<App />} />
-            <Route path="/:charId" element={<CharacterDetail />} />
+            <Route path="/:charId" element={<App isDetail={true} />} />
             <Route path="/profile" element={<UserProfile />} />
           </Routes>
         </BrowserRouter>
