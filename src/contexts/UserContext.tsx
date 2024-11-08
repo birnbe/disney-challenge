@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { User, UserContextType } from "../types";
-
-// UserContext.tsx
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { User, UserContextType } from "../types";
 import Cookies from 'js-cookie';
 
 
