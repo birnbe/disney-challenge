@@ -1,6 +1,8 @@
 import { arrayToQuotedString } from "../utils";
+import { Link } from "react-router-dom";
 
 type CharacterCardProps = {
+  id: number;
   imageUrl: string;
   name: string;
   films: string[];
@@ -8,7 +10,8 @@ type CharacterCardProps = {
 
 const CharacterCard = (props: CharacterCardProps): JSX.Element => {
   return (
-    <figure className="group flex flex-col justify-center w-62 cursor-pointer">
+    <Link to={`/${props.id}`} className="group">
+    <figure className="border group-hover:border-disney-blue-500 border-transparent transition-all group-hover:drop-shadow-[0_4px_4px_rgba(5,69,83,0.24)] flex flex-col justify-center w-62 cursor-pointer">
       <img
         src={props.imageUrl}
         alt={props.name}
@@ -24,13 +27,14 @@ const CharacterCard = (props: CharacterCardProps): JSX.Element => {
                 {arrayToQuotedString(props.films)}
               </p>
             </section>
-            <button className="font-extrabold uppercase text-sm underline">
+            <button className="font-extrabold uppercase text-sm group-hover:underline">
               View Profile
             </button>
           </>
         ) : null}
       </figcaption>
     </figure>
+    </Link>
   );
 };
 

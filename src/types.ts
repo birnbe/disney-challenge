@@ -23,6 +23,9 @@ export interface CharacterType {
   parkAttractions: string[];
   allies: string[];
   enemies: string[];
+  updatedAt: string;
+  createdAt: string;
+  sourceUrl: string;
 }
 
 export interface CharacterResponse<T = CharacterType | CharacterType[]> {
@@ -32,5 +35,10 @@ export interface CharacterResponse<T = CharacterType | CharacterType[]> {
     nextPage?: string | null;
     previousPage?: string | null;
     totalPages?: number;
-  }
+  };
+}
+
+export interface CharacterData {
+  data: (CharacterType | undefined)[];
+  pending: boolean;
 }
