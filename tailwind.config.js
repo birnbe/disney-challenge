@@ -9,7 +9,7 @@ export default {
       sm: "640px",
       // => @media (min-width: 640px) { ... }
 
-      md: "768px",
+      md: "858px",
       // => @media (min-width: 768px) { ... }
 
       lg: "1024px",
@@ -27,7 +27,9 @@ export default {
           100: "#F1F2F3",
           500: "#054553",
         },
-        "base-copy": "#222222",
+        "base-copy" : "#222222",
+        "secondary" : "#5B6873",
+        "light-gray": "#C2CCDA",
       },
       width: {
         '62': '15.5rem'
