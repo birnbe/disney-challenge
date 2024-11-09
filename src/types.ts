@@ -1,8 +1,12 @@
 export interface User {
   firstName: string;
   lastName: string;
+  birthDate: Date | null;
   city: string;
   state: string;
+  character: string;
+  movie: string;
+  park: string;
   lastUpdate: Date;
 }
 
